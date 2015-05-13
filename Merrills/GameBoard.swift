@@ -116,6 +116,8 @@ class GameBoard: NSObject {
     
     func findMills() {
         
+        mills = nil
+        
         if boardLayout[1] != .empty {
             if boardLayout[0] == boardLayout[1] && boardLayout[2] == boardLayout[1] {
                 if mills == nil {

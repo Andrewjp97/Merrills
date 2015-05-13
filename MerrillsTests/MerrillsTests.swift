@@ -62,6 +62,30 @@ class MerrillsTests: XCTestCase {
         
     }
     
+    func testMovingPiecesOnMixedBoard() {
+        
+        let board = mixedBoard
+        let game = GameBoard()
+        game.boardLayout = board
+        game.findMills()
+        XCTAssertEqual(game.mills!.count, 4, "Mills Not Accurately Counted")
+        var value = game.removePiece(0)
+        XCTAssertTrue(value, "Piece Not Removed")
+        value = game.removePiece(0)
+        XCTAssertFalse(value, "Allowed to remove empty space")
+        game.findMills()
+        XCTAssertEqual(game.mills!.count, 3, "Mills Not Accurately Counted")
+        XCTAssertTrue(game.makeMove(2, desiredLocation: 1, flying: false), "Piece not moved")
+        XCTAssertEqual(game.boardLayout[2], gamePiece.empty, "Location not empty")
+        XCTAssertTrue(game.makeMove(1, desiredLocation: 0, flying: false), "Piece not moved")
+        XCTAssertTrue(game.makeMove(4, desiredLocation: 2, flying: false), "Piece not moved")
+        XCTAssertTrue(game.makeMove(9, desiredLocation: 1, flying: false), "Piece not moved")
+        XCTAssertFalse(game.makeMove(10, desiredLocation: 8, flying: false), "Piece allowed to move too far")
+        game.findMills()
+        XCTAssertEqual(game.mills!.count, 2, "Mills Not Accurately Counted")
+        
+    }
+    
     func testMillFindingPerformance() {
         
         let game = GameBoard()
