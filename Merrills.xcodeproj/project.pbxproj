@@ -16,6 +16,8 @@
 		AE9D8D9C1B02D199009511E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D8D9A1B02D199009511E2 /* LaunchScreen.xib */; };
 		AE9D8DA81B02D199009511E2 /* MerrillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D8DA71B02D199009511E2 /* MerrillsTests.swift */; };
 		AE9D8DB21B02D26B009511E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9D8DB11B02D26B009511E2 /* GameKit.framework */; };
+		AE9D8DB51B02D31C009511E2 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D8DB41B02D31C009511E2 /* GameBoard.swift */; };
+		AE9D8DB61B03C420009511E2 /* GameBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D8DB41B02D31C009511E2 /* GameBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		AE9D8DA61B02D199009511E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9D8DA71B02D199009511E2 /* MerrillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerrillsTests.swift; sourceTree = "<group>"; };
 		AE9D8DB11B02D26B009511E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		AE9D8DB41B02D31C009511E2 /* GameBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,7 @@
 				AE9D8D981B02D199009511E2 /* Images.xcassets */,
 				AE9D8D9A1B02D199009511E2 /* LaunchScreen.xib */,
 				AE9D8D8B1B02D199009511E2 /* Supporting Files */,
+				AE9D8DB41B02D31C009511E2 /* GameBoard.swift */,
 			);
 			path = Merrills;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9D8DB51B02D31C009511E2 /* GameBoard.swift in Sources */,
 				AE9D8D921B02D199009511E2 /* GameScene.swift in Sources */,
 				AE9D8D941B02D199009511E2 /* GameViewController.swift in Sources */,
 				AE9D8D8E1B02D199009511E2 /* AppDelegate.swift in Sources */,
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9D8DB61B03C420009511E2 /* GameBoard.swift in Sources */,
 				AE9D8DA81B02D199009511E2 /* MerrillsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
