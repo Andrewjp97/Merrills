@@ -97,6 +97,55 @@ class MerrillsTests: XCTestCase {
         }
     }
     
+    func testPossibleMoves() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        game.makeMove(3, desiredLocation: 11, flying: false)
+        let moves = game.findPotentialMoves(11, flying: false)
+        XCTAssertEqual(moves.count, 3, "Incorrect number of possible moves")
+        
+    }
+    
+    func testPossibleRemovals() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        let removals = game.findPotentialRemovals(.red)
+        XCTAssertEqual(removals.count, 9, "Incorrect number of possible removals")
+        
+    }
+    
+    func testPossibleMovesPerformence() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        game.makeMove(3, desiredLocation: 11, flying: false)
+        self.measureBlock { () -> Void in
+            for (var i = 0; i <= 10000; i++) {
+                
+                let moves = game.findPotentialMoves(11, flying: false)
+                
+            }
+        }
+
+    }
+    
+    func testPossibleRemovalPerformance() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        game.makeMove(3, desiredLocation: 11, flying: false)
+        self.measureBlock { () -> Void in
+            for (var i = 0; i <= 10000; i++) {
+                
+                let moves = game.findPotentialRemovals(.red)
+                
+            }
+        }
+        
+    }
+    
     func testMillFindingPerformance() {
         
         let game = GameBoard()
