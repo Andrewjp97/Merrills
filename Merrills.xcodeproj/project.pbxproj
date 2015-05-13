@@ -15,6 +15,7 @@
 		AE9D8D991B02D199009511E2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE9D8D981B02D199009511E2 /* Images.xcassets */; };
 		AE9D8D9C1B02D199009511E2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE9D8D9A1B02D199009511E2 /* LaunchScreen.xib */; };
 		AE9D8DA81B02D199009511E2 /* MerrillsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9D8DA71B02D199009511E2 /* MerrillsTests.swift */; };
+		AE9D8DB21B02D26B009511E2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE9D8DB11B02D26B009511E2 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		AE9D8DA11B02D199009511E2 /* MerrillsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MerrillsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE9D8DA61B02D199009511E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE9D8DA71B02D199009511E2 /* MerrillsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerrillsTests.swift; sourceTree = "<group>"; };
+		AE9D8DB11B02D26B009511E2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE9D8DB21B02D26B009511E2 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		AE9D8D7F1B02D199009511E2 = {
 			isa = PBXGroup;
 			children = (
+				AE9D8DB11B02D26B009511E2 /* GameKit.framework */,
 				AE9D8D8A1B02D199009511E2 /* Merrills */,
 				AE9D8DA41B02D199009511E2 /* MerrillsTests */,
 				AE9D8D891B02D199009511E2 /* Products */,
@@ -128,6 +132,7 @@
 				AE9D8D841B02D199009511E2 /* Sources */,
 				AE9D8D851B02D199009511E2 /* Frameworks */,
 				AE9D8D861B02D199009511E2 /* Resources */,
+				AE9D8DB31B02D2CA009511E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -167,6 +172,12 @@
 				TargetAttributes = {
 					AE9D8D871B02D199009511E2 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 3W67YYZ9EF;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+						};
 					};
 					AE9D8DA01B02D199009511E2 = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -213,6 +224,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AE9D8DB31B02D2CA009511E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "git=`sh /etc/profile; which git`\nappBuild=`\"$git\" rev-list --all |wc -l`\nif [ $CONFIGURATION = \"Debug\" ]; then\nbranchName=`\"$git\" rev-parse --abbrev-ref HEAD`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild-$branchName\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nelse\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $appBuild\" \"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"\nfi\necho \"Updated ${TARGET_BUILD_DIR}/${INFOPLIST_PATH}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE9D8D841B02D199009511E2 /* Sources */ = {
@@ -350,9 +377,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Merrills/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -360,9 +391,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Merrills/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

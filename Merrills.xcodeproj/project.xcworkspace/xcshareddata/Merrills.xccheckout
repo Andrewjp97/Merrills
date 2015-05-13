@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>52CCE0F8-37E7-42A2-8602-B2A6B0D467BA</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>7E992EF12CB9A33B7B0EF52F007DA55D3871FAF2</key>
+		<string>https://github.com/Andrewjp97/Merrills.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Merrills.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>7E992EF12CB9A33B7B0EF52F007DA55D3871FAF2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Andrewjp97/Merrills.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>7E992EF12CB9A33B7B0EF52F007DA55D3871FAF2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7E992EF12CB9A33B7B0EF52F007DA55D3871FAF2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Merrills</string>
+		</dict>
+	</array>
+</dict>
+</plist>
