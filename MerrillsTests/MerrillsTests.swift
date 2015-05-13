@@ -68,7 +68,9 @@ class MerrillsTests: XCTestCase {
         game.boardLayout = redBoard
         
         self.measureBlock { () -> Void in
-            game.findMills()
+            for (var i = 0; i <= 10000; i++) {
+                game.findMills()
+            }
         }
         
     }
