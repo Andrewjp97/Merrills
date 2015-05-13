@@ -86,6 +86,17 @@ class MerrillsTests: XCTestCase {
         
     }
     
+    func testRemovingPieces() {
+        let game = GameBoard()
+        game.boardLayout = redBoard
+        var i = 0
+        for piece in game.boardLayout {
+            XCTAssertTrue(game.removePiece(i), "Not allowed to remove piece")
+            XCTAssertFalse(game.removePiece(i), "Allowed to remove empty spot")
+            i++
+        }
+    }
+    
     func testMillFindingPerformance() {
         
         let game = GameBoard()
@@ -94,6 +105,20 @@ class MerrillsTests: XCTestCase {
         self.measureBlock { () -> Void in
             for (var i = 0; i <= 10000; i++) {
                 game.findMills()
+            }
+        }
+        
+    }
+    
+    func testMovePerformance() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        
+        self.measureBlock { () -> Void in
+            for (var i = 0; i <= 10000; i++) {
+                game.makeMove(0, desiredLocation: 1, flying: false)
+                game.makeMove(1, desiredLocation: 0, flying: false)
             }
         }
         
