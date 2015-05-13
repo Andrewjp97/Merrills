@@ -12,12 +12,27 @@ import XCTest
 class MerrillsTests: XCTestCase {
     
     var redBoard: Array<gamePiece> = []
+    var mixedBoard: Array<gamePiece> = []
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         redBoard = [gamePiece.red]
+        
+        mixedBoard = [gamePiece.red, .empty, .blue, .red, .blue, .red, .empty, .blue, .empty,
+                               .blue, .blue, .empty, .blue, .empty, .red, .red, .red,
+                               .red, .red, .blue, .blue, .empty, .red, .blue]
+        
+        // R        E       B
+        //   E      B     B
+        //      R   R   R
+        // R E  B       B B B
+        //      E   R   B
+        //   E      R     R
+        // R        E       B
+        //
+        // Mills = 2R, 2B
         
         for (var i = 1; i < 24; i++) {
             redBoard.append(gamePiece.red)
@@ -29,13 +44,22 @@ class MerrillsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testMillFinding() {
+    func testMillFindingOnFullBoard() {
     
         let game = GameBoard()
         game.boardLayout = redBoard
         game.findMills()
         XCTAssertEqual(game.mills!.count, 16, "Mills Not Accurately Counted")
+        
+    }
     
+    func testMillFindingOnMixedBoard() {
+        
+        let game = GameBoard()
+        game.boardLayout = mixedBoard
+        game.findMills()
+        XCTAssertEqual(game.mills!.count, 4, "Mills Not Accurately Counted")
+        
     }
     
     func testMillFindingPerformance() {
